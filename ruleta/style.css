@@ -1,0 +1,281 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("./ficha.css");
+/* font-family: "Oswald", sans-serif; */
+:root {
+    --colorTable: #c40600;
+    --colorTableB: #0c0c0c;
+    --cText: #d0bd00;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-image: url("./img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    /* background-color: lightblue; */
+}
+h1 {
+    text-align: center;
+    color: var(--cText);
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 4px;
+    height: 5vh;
+    font-size: 35px;
+    /* height: 50px; */
+}
+main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+main .ruleta,
+main .contenedor-tablero {
+    height: 95vh;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+main .ruleta {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    height: 100vh;
+    width: 100vw;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s ease-in;
+}
+main .ruleta img {
+    height: 400px;
+    width: 400px;
+    position: relative;
+    transition: 0.5s all;
+    top: 0;
+    transform: rotate(0deg);
+}
+main .ruleta .spin {
+    transform: rotate(180deg);
+    animation: spin 2s linear infinite;
+    -webkit-animation: spin 2s linear infinite;
+}
+
+main .off {
+    visibility: hidden;
+    opacity: 0;
+    z-index: -99;
+}
+main .off img {
+    top: 80px;
+}
+main .contenedor-tablero {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+main .contenedor-tablero .resultado {
+    margin: 10px;
+    justify-content: flex-start;
+    align-self: flex-start;
+}
+main .resultado p {
+    color: var(--cText);
+    font-family: "Oswald", sans-serif;
+    font-size: 20px;
+}
+main .tablero {
+    display: grid;
+    grid-template-areas: "cero cero cero";
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+}
+main .tablero .numeros {
+    height: 80px;
+    width: 100px;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 28px;
+    background-color: var(--colorTable);
+    padding: 15px;
+}
+main .tablero .numeros p {
+    position: relative;
+    transform: rotate(90deg);
+}
+main .tablero .numeros:hover {
+    cursor: pointer;
+}
+main .tablero .numeros:nth-child(2n + 1) {
+    background-color: var(--colorTableB);
+}
+main .tablero .numeros:nth-child(12) {
+    background-color: var(--colorTableB);
+}
+main .tablero .numeros:nth-child(13) {
+    background-color: var(--colorTable);
+}
+main .tablero .numeros:nth-child(14) {
+    background-color: var(--colorTableB);
+}
+main .tablero .numeros:nth-child(15) {
+    background-color: var(--colorTable);
+}
+main .tablero .numeros:nth-child(16) {
+    background-color: var(--colorTableB);
+}
+main .tablero .numeros:nth-child(17) {
+    background-color: var(--colorTable);
+}
+main .tablero .numeros:nth-child(18) {
+    background-color: var(--colorTableB);
+}
+main .tablero .numeros:nth-child(19) {
+    background-color: var(--colorTable);
+}
+main .tablero .numeros:nth-child(30) {
+    background-color: var(--colorTableB);
+}
+main .tablero .numeros:nth-child(31) {
+    background-color: var(--colorTable);
+}
+main .tablero .numeros:nth-child(32) {
+    background-color: var(--colorTableB);
+}
+main .tablero .numeros:nth-child(33) {
+    background-color: var(--colorTable);
+}
+main .tablero .numeros:nth-child(34) {
+    background-color: var(--colorTableB);
+}
+main .tablero .numeros:nth-child(35) {
+    background-color: var(--colorTable);
+}
+main .tablero .numeros:nth-child(36) {
+    background-color: var(--colorTableB);
+}
+main .tablero .numeros:nth-child(37) {
+    background-color: var(--colorTable);
+}
+main .tablero .cero {
+    grid-area: cero;
+
+    /* height: 100%; */
+    width: 100%;
+}
+main .tablero .cero {
+    background-color: green !important;
+}
+main .tablero .salio {
+    background-color: yellow;
+}
+.bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 120px;
+    width: 100vw;
+    background-color: #121212;
+    /* background-image: url("./img/textura.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bottom .modelos-fichas,
+.bottom .acciones {
+    width: 60%;
+}
+
+.bottom .modelos-fichas {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.bottom .modelos-fichas .slot {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.bottom .modelos-fichas .slot:hover {
+    cursor: pointer;
+}
+.bottom .modelos-fichas .slot p {
+    color: white;
+    padding: 5px;
+    font-size: 21px;
+    font-family: "Oswald", sans-serif;
+}
+.bottom .modelos-fichas .ficha {
+    margin: 0 25px;
+}
+.bottom .acciones {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bottom button {
+    height: 60px;
+    width: 160px;
+    margin: 10px 15px;
+    background: none;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    /* box-shadow: 1px 3px 6px -2px rgba(0, 0, 0, 0.47);
+    -webkit-box-shadow: 1px 3px 6px -2px rgba(0, 0, 0, 0.47);
+    -moz-box-shadow: 1px 3px 6px -2px rgba(0, 0, 0, 0.47); */
+    transition: 0.5s all;
+    font-family: "Oswald", sans-serif;
+}
+.bottom .btn {
+    border: 1px solid white;
+    font-size: 21px;
+}
+button:hover {
+    background: none;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.bottom .btn:hover {
+    background-color: white;
+    color: #333333;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

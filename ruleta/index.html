@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruleta | Teo</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <h1>JUEGO DE RULETA</h1>
+    <main>
+        <div class="ruleta off">
+            <img id="ruleta" src="./img/rulet.png" alt="asd">
+        </div>
+        <div class="contenedor-tablero">
+            <div class="resultado">
+                <p>Para poder empezar a jugar apreta el boton de APOSTAR y elegi la ficha que queres apostar. Luego dale
+                    a girar y... que comience el juego!</p>
+                <p id="res"></p>
+            </div>
+            <div class="tablero">
+                <div class="numeros cero">
+                    <p>0</p>
+                </div>
+                <div class="numeros">
+                    <p>1</p>
+                </div>
+                <div class="numeros">
+                    <p>2</p>
+                </div>
+                <div class="numeros">
+                    <p>3</p>
+                </div>
+                <div class="numeros">
+                    <p>4</p>
+                </div>
+                <div class="numeros">
+                    <p>5</p>
+                </div>
+                <div class="numeros">
+                    <p>6</p>
+                </div>
+                <div class="numeros">
+                    <p>7</p>
+                </div>
+                <div class="numeros">
+                    <p>8</p>
+                </div>
+                <div class="numeros">
+                    <p>9</p>
+                </div>
+                <div class="numeros">
+                    <p>10</p>
+                </div>
+                <div class="numeros">
+                    <p>11</p>
+                </div>
+                <div class="numeros">
+                    <p>12</p>
+                </div>
+                <div class="numeros">
+                    <p>13</p>
+                </div>
+                <div class="numeros">
+                    <p>14</p>
+                </div>
+                <div class="numeros">
+                    <p>15</p>
+                </div>
+                <div class="numeros">
+                    <p>16</p>
+                </div>
+                <div class="numeros">
+                    <p>17</p>
+                </div>
+                <div class="numeros">
+                    <p>18</p>
+                </div>
+                <div class="numeros">
+                    <p>19</p>
+                </div>
+                <div class="numeros">
+                    <p>20</p>
+                </div>
+                <div class="numeros">
+                    <p>21</p>
+                </div>
+                <div class="numeros">
+                    <p>22</p>
+                </div>
+                <div class="numeros">
+                    <p>23</p>
+                </div>
+                <div class="numeros">
+                    <p>24</p>
+                </div>
+                <div class="numeros">
+                    <p>25</p>
+                </div>
+                <div class="numeros">
+                    <p>26</p>
+                </div>
+                <div class="numeros">
+                    <p>27</p>
+                </div>
+                <div class="numeros">
+                    <p>28</p>
+                </div>
+                <div class="numeros">
+                    <p>29</p>
+                </div>
+                <div class="numeros">
+                    <p>30</p>
+                </div>
+                <div class="numeros">
+                    <p>31</p>
+                </div>
+                <div class="numeros">
+                    <p>32</p>
+                </div>
+                <div class="numeros">
+                    <p>33</p>
+                </div>
+                <div class="numeros">
+                    <p>34</p>
+                </div>
+                <div class="numeros">
+                    <p>35</p>
+                </div>
+                <div class="numeros">
+                    <p>36</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="bottom">
+        <div class="modelos-fichas">
+            <div class="slot">
+                <div class="ficha ficha-x1" id="1">
+                    <div class="linea"></div>
+                    <div class="linea"></div>
+                    <div class="linea"></div>
+                    <div class="linea"></div>
+                    <div class="interior">1</div>
+                </div>
+                <p>x <span class="cantFichas">5</span></p>
+            </div>
+            <div class="slot">
+                <div class="ficha ficha-x10" id="10">
+                    <div class="linea"></div>
+                    <div class="linea"></div>
+                    <div class="linea"></div>
+                    <div class="linea"></div>
+                    <div class="interior">5</div>
+                </div>
+                <p>x <span class="cantFichas">5</span></p>
+            </div>
+            <div class="slot">
+                <div class="ficha ficha-x25" id="25">
+                    <div class="linea"></div>
+                    <div class="linea"></div>
+                    <div class="linea"></div>
+                    <div class="linea"></div>
+                    <div class="interior">25</div>
+                </div>
+                <p>x <span class="cantFichas">5</span></p>
+            </div>
+            <div class="slot">
+                <div class="ficha ficha-x50" id="50">
+                    <div class="linea"></div>
+                    <div class="linea"></div>
+                    <div class="linea"></div>
+                    <div class="linea"></div>
+                    <div class="interior">50</div>
+                </div>
+                <p>x <span class="cantFichas">5</span></p>
+            </div>
+            <div class="slot">
+                <div class="ficha ficha-x100" id="100">
+                    <div class="linea"></div>
+                    <div class="linea"></div>
+                    <div class="linea"></div>
+                    <div class="linea"></div>
+                    <div class="interior">100</div>
+                </div>
+                <p>x <span class="cantFichas">5</span></p>
+            </div>
+        </div>
+        <div class="acciones">
+            <button id="girar" onclick="limpiarCasilleros()">LIMPIAR</button>
+            <button class="btn" id="girar" onclick="girarRuleta()">GIRAR</button>
+            <button id="agregar" onclick="agregarFicha()">APOSTAR</button>
+        </div>
+        <!-- <button onclick="detenerFicha()">DETENER</button> -->
+    </div>
+    <script src="./app.js"></script>
+</body>
+
+</html>

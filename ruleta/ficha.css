@@ -1,0 +1,68 @@
+.ficha {
+    height: 60px;
+    width: 60px;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* overflow: auto; */
+    position: relative;
+}
+.ficha .linea {
+    position: absolute;
+    height: 100%;
+    width: 10px;
+    background-color: #f63c3c;
+    transform: rotate(25deg);
+}
+.ficha .linea:nth-child(2) {
+    transform: rotate(75deg);
+}
+.ficha .linea:nth-child(3) {
+    transform: rotate(125deg);
+}
+.ficha .linea:nth-child(4) {
+    transform: rotate(166deg);
+}
+.ficha .interior {
+    height: 45px;
+    width: 45px;
+    background-color: #de0101;
+    border-radius: 30px;
+    box-shadow: 1px 0px 9px -2px rgba(0, 0, 0, 0.67) inset;
+    -webkit-box-shadow: 1px 0px 9px -2px rgba(0, 0, 0, 0.67) inset;
+    -moz-box-shadow: 1px 0px 9px -2px rgba(0, 0, 0, 0.67) inset;
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: "Oswald", sans-serif;
+    font-size: 15px;
+}
+.ficha-x10 .linea {
+    background-color: #0ec640;
+}
+.ficha-x10 .interior {
+    background-color: #028826;
+}
+.ficha-x25 .linea {
+    background-color: #2a1bde;
+}
+.ficha-x25 .interior {
+    background-color: #0c0189;
+}
+.ficha-x50 .linea {
+    background-color: #d41cea;
+}
+.ficha-x50 .interior {
+    background-color: #7f028e;
+}
+.ficha-x100 .linea {
+    background-color: #ffa847;
+}
+.ficha-x100 .interior {
+    background-color: #ff8700;
+}

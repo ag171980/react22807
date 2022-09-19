@@ -1,0 +1,1 @@
+document.write(elevar(2, 8))
