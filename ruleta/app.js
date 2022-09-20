@@ -59,7 +59,7 @@ function girarRuleta() {
         document.querySelector("#ruleta").classList.add("spin")
         setTimeout(() => {
             document.querySelector("#ruleta").classList.remove("spin")
-            let res = Math.round(Math.random() * 5)
+            let res = Math.round(Math.random() * 36)
             response.innerHTML = `No va mas... el numero que salio es: ${res}`
             document.querySelector(".ruleta").classList.add("off")
             if (comprobarCoincidencia(res)) {
