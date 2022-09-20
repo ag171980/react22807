@@ -8,6 +8,9 @@
     justify-content: center;
     /* overflow: auto; */
     position: relative;
+    left: 0;
+    opacity: 1;
+    transition: 0.5s all;
 }
 .ficha .linea {
     position: absolute;
@@ -65,4 +68,13 @@
 }
 .ficha-x100 .interior {
     background-color: #ff8700;
+}
+
+.decasa {
+    left: 750px;
+    transition: 0.5s all;
+}
+.tuyas {
+    left: -750px;
+    transition: 0.5s all;
 }

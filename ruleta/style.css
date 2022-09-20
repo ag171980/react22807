@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
 @import url("./ficha.css");
 /* font-family: "Oswald", sans-serif; */
 :root {
@@ -26,8 +27,103 @@ h1 {
     letter-spacing: 4px;
     height: 5vh;
     font-size: 35px;
+    vertical-align: middle;
     /* height: 50px; */
 }
+.notificacion {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    z-index: 99;
+    height: 50px;
+    width: 99vw;
+    border-radius: 10px;
+    padding: 10px;
+    transform: translateX(-50%);
+    background-color: #008fff;
+    transition: 0.5s all;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.notificacion p {
+    color: white;
+    font-family: "Roboto", sans-serif;
+}
+.btn-reglas {
+    font-family: "Oswald", sans-serif;
+    padding: 7px 12px;
+    position: relative;
+    top: -3px;
+    background: none;
+    border: none;
+    background-color: var(--cText);
+    font-size: 19px;
+    color: white;
+    transition: 0.5s all;
+}
+.btn-reglas:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.contenedor-reglas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    z-index: -99;
+    transition: 0.5s all;
+}
+.contenedor-reglas .reglas {
+    height: 400px;
+    width: 500px;
+    background-color: white;
+    padding: 10px;
+    font-family: "Oswald", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.contenedor-reglas .reglas h2 {
+    text-align: center;
+    padding: 10px 0 20px;
+}
+.contenedor-reglas .reglas ol {
+    height: 100%;
+    list-style: decimal-leading-zero;
+    margin: 0 20px;
+}
+.contenedor-reglas .reglas li {
+    padding: 5px 0;
+}
+.contenedor-reglas .reglas .btn-reglas {
+    margin: 0 auto;
+    width: 100%;
+    background: none;
+    color: var(--cText);
+}
+.contenedor-reglas .reglas .btn-reglas:hover {
+    background-color: var(--cText);
+    color: white;
+    transform: scale(1);
+}
+.show {
+    visibility: visible;
+    opacity: 1;
+    z-index: 99;
+}
+
 main {
     display: flex;
     flex-direction: row;
@@ -93,9 +189,12 @@ main .contenedor-tablero .resultado {
     align-self: flex-start;
 }
 main .resultado p {
+    position: absolute;
+    top: 15%;
+    left: 21%;
     color: var(--cText);
     font-family: "Oswald", sans-serif;
-    font-size: 20px;
+    font-size: 23px;
 }
 main .tablero {
     display: grid;
@@ -108,16 +207,17 @@ main .tablero {
     transform: translate(-50%, -50%) rotate(-90deg);
 }
 main .tablero .numeros {
-    height: 80px;
-    width: 100px;
+    height: 90px;
+    width: 110px;
     border: 2px solid white;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 28px;
+    font-size: 30px;
     background-color: var(--colorTable);
     padding: 15px;
+    transition: 0.5s all;
 }
 main .tablero .numeros p {
     position: relative;
@@ -179,15 +279,13 @@ main .tablero .numeros:nth-child(37) {
 }
 main .tablero .cero {
     grid-area: cero;
-
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
     /* height: 100%; */
     width: 100%;
-}
-main .tablero .cero {
     background-color: green !important;
 }
 main .tablero .salio {
-    background-color: yellow;
 }
 .bottom {
     position: fixed;
@@ -256,7 +354,7 @@ main .tablero .salio {
     border: 1px solid white;
     font-size: 21px;
 }
-button:hover {
+.bottom button:hover {
     background: none;
     cursor: pointer;
     transform: scale(1.1);

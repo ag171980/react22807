@@ -10,15 +10,28 @@
 </head>
 
 <body>
-    <h1>JUEGO DE RULETA</h1>
+    <h1>JUEGO DE RULETA | <button class="btn-reglas">¿Como Jugar?</button></h1>
+    <div class="notificacion">
+
+    </div>
+    <div class="contenedor-reglas">
+        <div class="reglas">
+            <h2>¿Como Jugar?</h2>
+            <ol>
+                <li>Para poder empezar a jugar apreta el boton de <b>APOSTAR</b> y elegi que tipo de ficha queres
+                    apostar.</li>
+                <li>Una vez que ya hayas apostado, dale a <b>DEJAR</b> y posteriormente ¡A ganar!</li>
+                <li>Si le acertas al numero ganas el doble de lo que apostaste.</li>
+            </ol>
+            <button class="btn-reglas">Cerrar</button>
+        </div>
+    </div>
     <main>
         <div class="ruleta off">
             <img id="ruleta" src="./img/rulet.png" alt="asd">
         </div>
         <div class="contenedor-tablero">
             <div class="resultado">
-                <p>Para poder empezar a jugar apreta el boton de APOSTAR y elegi la ficha que queres apostar. Luego dale
-                    a girar y... que comience el juego!</p>
                 <p id="res"></p>
             </div>
             <div class="tablero">
