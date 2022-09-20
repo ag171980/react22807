@@ -2,13 +2,20 @@ let nombre = prompt("Ingrese su nombre")
 var entro = false
 let numero = prompt("Elegi un numero del 0 al 36")
 while (!entro) {
-    if (numero < 0 || numero > 36) {
-        numero = prompt("Numero incorrecto, ingrese otro que si este entre el 0 y 36")
+    if (isNaN(nombre)) {
+        if (!isNaN(numero)) {
+            if (numero < 0 || numero > 36) {
+                numero = prompt("Numero incorrecto, ingrese otro que si este entre el 0 y 36")
+            } else {
+                ruleta(nombre, numero)
+                entro = true
+            }
+        } else {
+            numero = prompt("Incorrecto, tenes que elegir un numero y no ingresar letras")
+        }
     } else {
-        ruleta(nombre, numero)
-        entro = true
+        nombre = prompt("Tu nombre tiene que ser con letras!")
     }
-
 }
 
 

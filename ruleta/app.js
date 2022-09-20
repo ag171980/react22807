@@ -10,8 +10,6 @@ let fichaActuall = {
     cantFicha: 0
 }
 let fichasApostadas = []
-let fichaActual;
-let numFicha;
 let cantFichaActual;
 let notificacion = document.querySelector(".notificacion")
 let contReglas = document.querySelector(".contenedor-reglas").classList
@@ -25,35 +23,45 @@ btnReglas.forEach(btn => {
         }
     })
 })
+cargarTablero()
 
-numeros.forEach((numero, index) => {
-    numero.addEventListener("click", () => {
-        if (agregarFichaState) {
-            if (fichaActuall.ficha != "") {
-                cantFichas++;
-                if (cantFichas <= 5) {
-                    numero.innerHTML = `<div class="ficha ficha-x${fichaActuall.numFicha}" id="${fichaActuall.numFicha}">
-                    ${fichaActuall.ficha}
-                    </div>`
-                    fichasApostadas.push(fichaActuall)
-                    fichaActuall.cantFichaN -= 1
 
-                    document.getElementsByClassName("cantFichas")[fichaActuall.pos].innerHTML = fichaActuall.cantFichaN
-                } else {
-                    mostrarNotificacion("Ya alcanzaste el limite", "error")
-                }
+function cargarTablero() {
+    for (let index = 0; index <= 36; index++) {
+        if (index != 0) {
+            document.querySelector(".tablero").innerHTML += `<div class="numeros" onclick="colocarFicha(${index})">
+            <p>${index}</p>
+        </div>`
+        } else {
+            document.querySelector(".tablero").innerHTML = `<div class="numeros cero" onclick="colocarFicha(${index})">
+            <p>${index}</p>
+        </div>`
+        }
+    }
+}
+function colocarFicha(pos) {
+    let numeros = document.querySelectorAll(".numeros")
+    if (agregarFichaState) {
+        if (fichaActuall.ficha != "") {
+            cantFichas++;
+            if (cantFichas <= 5) {
+                numeros[pos].innerHTML = `<div class="ficha ficha-x${fichaActuall.numFicha}" id="${fichaActuall.numFicha}">
+                        ${fichaActuall.ficha}
+                        </div>`
+                fichasApostadas.push(fichaActuall)
+                fichaActuall.cantFichaN -= 1
+                document.getElementsByClassName("cantFichas")[fichaActuall.pos].innerHTML = fichaActuall.cantFichaN
             } else {
-                mostrarNotificacion("Tenes que seleccionar una ficha para apostar.", "alert")
+                mostrarNotificacion("Ya alcanzaste el limite", "error")
             }
         } else {
-            mostrarNotificacion("Para agregar fichas a su tablero debe tocar en el boton de APOSTAR.", "alert")
+            mostrarNotificacion("Tenes que seleccionar una ficha para apostar.", "alert")
         }
-    })
-    fichaActuall = {}
-})
-
+    } else {
+        mostrarNotificacion("Para agregar fichas a su tablero debe tocar en el boton de APOSTAR.", "alert")
+    }
+}
 function girarRuleta() {
-    console.log(fichasApostadas)
     if (cantFichas != 0) {
         document.querySelector(".ruleta").classList.remove("off")
         document.querySelector("#ruleta").classList.add("spin")
@@ -65,8 +73,10 @@ function girarRuleta() {
             if (comprobarCoincidencia(res)) {
                 mostrarNotificacion("Ganaste, bien por vos 😒😒", "success")
                 moverFichas("tuyas")
-                console.log("Estas son tus fichas apostadas")
                 llenarFichasGanadas(fichasApostadas)
+                setTimeout(() => {
+                    fichasApostadas = []
+                }, 1000);
             } else {
                 mostrarNotificacion("No acertaste, ahora es de la casa 😈", "error")
                 moverFichas("decasa")
@@ -76,7 +86,6 @@ function girarRuleta() {
         mostrarNotificacion("Para poder girar la ruleta tenes que apostar fichas", "alert")
     }
     cantFichas = 0
-    // fichasApostadas = []
 }
 function agregarFicha() {
     if (agregarFichaState) {
@@ -94,27 +103,18 @@ let ficha = document.querySelectorAll(".slot")
 for (let i = 0; i < ficha.length; i++) {
     ficha[i].addEventListener("click", (e) => {
         e.preventDefault()
-
+        fichaActuall = {}
         if (ficha[i].children[1].children[0].innerHTML != 0) {
             fichaActuall.pos = i
             fichaActuall.ficha = ficha[i].children[0].innerHTML
             fichaActuall.cantFichaN = ficha[i].children[1].children[0].innerHTML
             fichaActuall.numFicha = parseInt(ficha[i].children[0].id)
+
         } else {
             mostrarNotificacion("No tenes mas de estas fichas :/", "alert")
         }
     })
 }
-
-// seleccionarFicha()
-// function seleccionarFicha() {
-//     let ficha = document.querySelector(".ficha")
-
-//     ficha.addEventListener("click", (e) => {
-//         e.preventDefault()
-//         console.log(ficha)
-//     })
-// }
 
 function comprobarCoincidencia(res) {
     let numeros = document.getElementsByClassName("numeros")
@@ -165,26 +165,11 @@ function moverFichas(cl) {
     })
 }
 function llenarFichasGanadas(apostadas) {
-    let contador = 0;
-    let contenedorCantFichas = document.querySelectorAll(".cantFichas")
-    console.log(apostadas)
-    for (let i = 0; i < ficha.length; i++) {
-        // contenedorCantFichas[i].innerHTML += 
-        // console.log(parseInt(ficha[contador].children[0].id))
-        for (let j = 0; j < apostadas.length; j++) {
-            if (parseInt(ficha[i].children[0].id) == apostadas[j].numFicha) {
-                ficha[i].children[1].children[0].innerHTML = parseInt(ficha[i].children[1].children[0].innerHTML) + 2
-                // console.log(`${ficha[i].children[0].id} == ${apostadas[j].numFicha}`)
-                // console.log(ficha[i].children[0].id)
+    ficha.forEach(fich => {
+        apostadas.forEach(apos => {
+            if (parseInt(fich.children[0].id) == apos.numFicha) {
+                fich.children[1].children[0].innerHTML = parseInt(fich.children[1].children[0].innerHTML) + 2
             }
-
-        }
-        // ficha.forEach((fichas, index) => {
-        //     apostadas.forEach(apostada => {
-        //         console.log(apostada)
-        //     })
-        // })
-
-
-    }
+        })
+    })
 }
